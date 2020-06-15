@@ -10,13 +10,16 @@ User.destroy_all
 Match.destroy_all
 Challenger.destroy_all
 
-f1 = Fighter.create(first_name: 'Daniel', last_name: 'Cormier', weight: 250, height: 72, champion_status: false)
-f2 = Fighter.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false)
-c1 = Challenger.create(first_name: 'Daniel', last_name: 'Cormier', weight: 250, height: 72, champion_status: false)
-c2 = Challenger.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false)
+Fighter.create(first_name: 'Stipe', last_name: 'miocic', weight: 240, height: 77, champion_status: false)
+Fighter.create(first_name: 'Daniel', last_name: 'Cormier', weight: 250, height: 72, champion_status: false)
+Fighter.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false)
 
-u1 = User.create(username: 'Yannick')
-u2 = User.create(username: 'Richard')
 
-# m1 = Match.create(fighter_id: f1.id, user_id: u1.id, venue: "T-Mobile Arena", comment: "Going to be a dope fight!")
-m1 = Match.create(fighter_id: f1.id, challenger_id: c2.id, user_id: u1.id, venue: "T-Mobile Arena", comment: "Going to be a dope fight!")
+Challenger.create(first_name: 'Stipe', last_name: 'miocic', weight: 240, height: 77, champion_status: false)
+Challenger.create(first_name: 'Daniel', last_name: 'Cormier', weight: 250, height: 72, champion_status: false)
+Challenger.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false)
+
+User.create(username: 'Yannick')
+User.create(username: 'Richard')
+
+Match.create(fighter_id: f1.id, challenger_id: c2.id, user_id: u1.id, venue: "T-Mobile Arena", comment: "Going to be a dope fight!")
