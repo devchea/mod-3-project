@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_144028) do
     t.integer "weight"
     t.integer "height"
     t.boolean "champion_status"
+    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_144028) do
     t.integer "weight"
     t.integer "height"
     t.boolean "champion_status"
+    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
