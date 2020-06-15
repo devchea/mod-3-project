@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_235203) do
+ActiveRecord::Schema.define(version: 2020_06_15_144028) do
+
+  create_table "challengers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "weight"
+    t.integer "height"
+    t.boolean "champion_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "fighters", force: :cascade do |t|
     t.string "first_name"
@@ -24,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_235203) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "fighter_id"
+    t.integer "challenger_id"
     t.integer "user_id"
     t.string "venue"
     t.string "comment"

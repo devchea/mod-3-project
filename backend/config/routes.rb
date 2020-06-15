@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :challengers
   resources :users
   resources :matches
   resources :user_names
