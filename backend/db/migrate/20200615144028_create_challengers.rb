@@ -6,6 +6,8 @@ class CreateChallengers < ActiveRecord::Migration[6.0]
       t.integer :weight
       t.integer :height
       t.boolean :champion_status
+      t.string :img_url
+
 
       t.timestamps
     end
