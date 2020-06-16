@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Fighter.destroy_all
-User.destroy_all
 Match.destroy_all
 Challenger.destroy_all
 
@@ -24,7 +23,6 @@ f11 = Fighter.create(first_name: 'Antonio', last_name: 'Nogueira',weight: 240, h
 f12 = Fighter.create(first_name: 'Matt', last_name: 'Hughes',weight: 170, height: 69, champion_status: false, img_url:"https://drive.google.com/file/d/1EYfZBrOvhxpGuLBPRb_qq45jsVV7yduf/view")
 f13 = Fighter.create(first_name: 'Chuck', last_name: 'Liddell',weight: 205, height: 74, champion_status: false, img_url:"https://drive.google.com/file/d/1UGZPdXNuAU0SizDCisFnkiSiWEeJlIaY/view")
 f14 = Fighter.create(first_name: 'Masakatsu', last_name: 'Funaki',weight: 209, height: 72, champion_status: false, img_url:"https://drive.google.com/file/d/16fXb_M5ImW2p-0efH24WmqFeV_MYwQh1/view")
-f15 = Fighter.create(first_name: 'Alistair', last_name: 'Overeem',weight: 260, height: 76, champion_status: false, img_url:"https://drive.google.com/file/d/1ifuK2LbyHQTXy0mkTIuAuWxDntZvZnR8/view")
 f15 = Fighter.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false, img_url:"https://drive.google.com/file/d/14QamItPoy7tdqFKsYfm5UzkTj-wizITX/view")
 f16 = Fighter.create(first_name: 'Fedor', last_name: 'Emelianenko',weight: 223, height: 72, champion_status: false, img_url:"https://drive.google.com/file/d/1LNbziguzI7ogyl6_jnUiSQM89NzKQFGF/view")
 f17 = Fighter.create(first_name: 'Randy', last_name: 'Couture',weight: 203, height: 61, champion_status: false, img_url:"https://drive.google.com/file/d/1BO6h7gmthyagNEbHnO4q7cfA3RBbnjiu/view")
@@ -76,7 +74,6 @@ c11 = Challenger.create(first_name: 'Antonio', last_name: 'Nogueira',weight: 240
 c12 = Challenger.create(first_name: 'Matt', last_name: 'Hughes',weight: 170, height: 69, champion_status: false, img_url:"https://drive.google.com/file/d/1EYfZBrOvhxpGuLBPRb_qq45jsVV7yduf/view")
 c13 = Challenger.create(first_name: 'Chuck', last_name: 'Liddell',weight: 205, height: 74, champion_status: false, img_url:"https://drive.google.com/file/d/1UGZPdXNuAU0SizDCisFnkiSiWEeJlIaY/view")
 c14 = Challenger.create(first_name: 'Masakatsu', last_name: 'Funaki',weight: 209, height: 72, champion_status: false, img_url:"https://drive.google.com/file/d/16fXb_M5ImW2p-0efH24WmqFeV_MYwQh1/view")
-c15 = Challenger.create(first_name: 'Alistair', last_name: 'Overeem',weight: 260, height: 76, champion_status: false, img_url:"https://drive.google.com/file/d/1ifuK2LbyHQTXy0mkTIuAuWxDntZvZnR8/view")
 c15 = Challenger.create(first_name: 'Francis', last_name: 'Ngannou',weight: 250, height: 76, champion_status: false, img_url:"https://drive.google.com/file/d/14QamItPoy7tdqFKsYfm5UzkTj-wizITX/view")
 c16 = Challenger.create(first_name: 'Fedor', last_name: 'Emelianenko',weight: 223, height: 72, champion_status: false, img_url:"https://drive.google.com/file/d/1LNbziguzI7ogyl6_jnUiSQM89NzKQFGF/view")
 c17 = Challenger.create(first_name: 'Randy', last_name: 'Couture',weight: 203, height: 61, champion_status: false, img_url:"https://drive.google.com/file/d/1BO6h7gmthyagNEbHnO4q7cfA3RBbnjiu/view")
@@ -114,11 +111,7 @@ c48 = Challenger.create(first_name: 'Cain', last_name: 'Velasquez',weight: 243, 
 c49 = Challenger.create(first_name: 'Chris', last_name: 'Weidman',weight: 186, height: 74, champion_status: false, img_url:"https://drive.google.com/file/d/1QxoDntkOsu0NXG4XF5GVC4cyFRkCYtcZ/view")
 c50 = Challenger.create(first_name: 'Gegard', last_name: 'Mousasi',weight: 185, height: 74, champion_status: false, img_url:"https://drive.google.com/file/d/1mBme_R-C99OKpZyA77_WHdZs6kLlwfcv/view")
 
-
-u1 = User.create(username: 'Yannick')
-u2 = User.create(username: 'Richard')
-
-Match.create(fighter_id: f1.id, challenger_id: c2.id, user_id: u1.id, venue: "T-Mobile Arena", comment: "Going to be a dope fight!")
-Match.create(fighter_id: f11.id, challenger_id: c8.id, user_id: u1.id, venue: "Staples Center", comment: "Cool!")
-Match.create(fighter_id: f9.id, challenger_id: c10.id, user_id: u2.id, venue: "Toyota Center", comment: "Nice")
-Match.create(fighter_id: f28.id, challenger_id: c29.id, user_id: u2.id, venue: "Fight Island", comment: "Fight")
+Match.create(fighter_id: f1.id, challenger_id: c2.id, venue: "T-Mobile Arena", comment: "Going to be a dope fight!")
+Match.create(fighter_id: f11.id, challenger_id: c8.id, venue: "Staples Center", comment: "Cool!")
+Match.create(fighter_id: f9.id, challenger_id: c10.id, venue: "Toyota Center", comment: "Nice")
+Match.create(fighter_id: f28.id, challenger_id: c29.id, venue: "Fight Island", comment: "Fight")
