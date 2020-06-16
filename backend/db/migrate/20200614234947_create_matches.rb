@@ -3,7 +3,6 @@ class CreateMatches < ActiveRecord::Migration[6.0]
     create_table :matches do |t|
       t.integer :fighter_id
       t.integer :challenger_id
-      t.integer :user_id
       t.string :venue
       t.string :comment
 

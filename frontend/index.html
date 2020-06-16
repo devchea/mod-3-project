@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>MMA Match Maker</title>
   <script defer src='src/index.js'></script>
-  <!-- <link rel="stylesheet" href="css/styles.css"> -->
+  <link rel="stylesheet" href="css/styles.css"> 
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -22,13 +22,18 @@
       <select id="second-fighter">
         <option value="" disabled selected>Choose your Second Fighter</option>
       </select>
+        <input id="venue-input" type="text" name="venue" placeholder="Add e venue..." />
+    </div>
+    <ul id="add-venue">
+    </ul> 
       <input id="match-submit" type="submit" value="Submit">
     </form>
     <div id="fighter-profile"></div>
     <div id="select-challenger"></div>
     <div id="challenger-profile"></div>
     <div id="comments"></div>
-    <div id= "venue"></div>
+    <div id= "venue">
+     
 
 
   </main>
