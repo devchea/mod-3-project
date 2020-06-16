@@ -24,9 +24,10 @@ function showFighter(fighter){
 function fighterDropdown(fighter) {
   const select = document.querySelector('#first-fighter')
   const option = document.createElement('option')
-  option.value = `${fighter.first_name}-${fighter.last_name}`
+  option.value = `${fighter.first_name} ${fighter.last_name}`
   option.innerHTML = `${fighter.first_name} ${fighter.last_name}`;
   select.append(option)
 }
+
 
 
