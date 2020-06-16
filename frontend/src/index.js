@@ -19,12 +19,12 @@ function fighterDropdown(fighter) {
   optionFighter.id = `${fighter.id}`
   selectFighter.append(optionFighter)
 
+
   const selectChallenger = document.querySelector('#second-fighter');
   const optionChallenger = document.createElement('option');
   optionChallenger.value = `${fighter.first_name} ${fighter.last_name}`;
   optionChallenger.innerHTML = `${fighter.first_name} ${fighter.last_name}`;
   selectChallenger.append(optionChallenger);
-
 }
 
 const form = document.querySelector('#fighter-form');
@@ -38,7 +38,6 @@ form.addEventListener('submit', (e) => {
 
 })
 
-
 function showFighter(fighter) {
 
   const fighterProfile = document.querySelector('#fighter-profile');
@@ -48,3 +47,4 @@ function showFighter(fighter) {
 
 
 }
+
