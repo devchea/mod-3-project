@@ -50,6 +50,14 @@ form.addEventListener('submit', (e) => {
   //pass information taken from user inputs to create a new match
   createMatch(selectFighterId, selectChallengerId, venueInput)
 
+  
+  if (selectFighterId == 28 && selectChallengerId == 30) {
+    alert("Really?")
+    alert("You sure about that?")
+    alert("I guess there are flying pigs now")
+  }
+
+
   form.reset()
 })
 
@@ -94,12 +102,12 @@ function showMatch(fighter1, fighter2) {
     fighterProfile.innerHTML = ''
     fighterProfile.className = 'container-left'
     const ulFighter = document.createElement('ul');
-    const fighterName = document.createElement('p')
+    const fighterName = document.createElement('h3')
     fighterName.textContent = `${fighter1[0].first_name} ${fighter1[0].last_name}`;
     const fighterHeight = document.createElement('li');
-    fighterHeight.innerHTML = `Height:${fighter1[0].height}`;
+    fighterHeight.innerHTML = `Height:${fighter1[0].height} inches`;
     const fighterWeight = document.createElement('li');
-    fighterWeight.innerHTML = `Weight:${fighter1[0].weight}`;
+    fighterWeight.innerHTML = `Weight:${fighter1[0].weight} lbs`;
     const fighterImg = document.createElement('img');
     fighterImg.className = 'img-fluid'
     fighterImg.src = `./assets/${fighter1[0].id}.png`;
@@ -112,7 +120,7 @@ function showMatch(fighter1, fighter2) {
     challengerProfile.innerHTML = ''
     challengerProfile.className = 'container-right'
     const ulChallenger = document.createElement('ul');
-    const challengerName = document.createElement('p')
+    const challengerName = document.createElement('h3')
     challengerName.textContent = `${fighter2[0].first_name} ${fighter2[0].last_name}`;
     const challengerHeight = document.createElement('li');
     challengerHeight.innerHTML = `Height: ${fighter2[0].height} inches`;
@@ -133,8 +141,8 @@ function showMatch(fighter1, fighter2) {
       const commentInput = document.createElement('input')
       const commentInputBtn = document.createElement('input')
       const ulFeedback = document.querySelector('#feedback-ul')
-      const comments = document.createElement('li')
-      comments.textContent = commentInput.value
+      // const comments = document.createElement('li')
+      // comments.textContent = commentInput.value
 
       commentInput.type = 'text'
       commentInput.id = 'comment-input'
@@ -146,9 +154,7 @@ function showMatch(fighter1, fighter2) {
       commentInputBtn.value = 'Post'
 
       feedbackSection.append(commentInput, commentInputBtn)
-      ulFeedback.append(comments)
-
-
+      // ulFeedback.append(comments)
 
     }
 
@@ -161,7 +167,5 @@ function showMatch(fighter1, fighter2) {
 //comment event listener to post comments
 
 function addListenerComments(commentInput) {
-  
-  
-  
+
 }
