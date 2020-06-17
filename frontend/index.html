@@ -13,9 +13,9 @@
 
 <body>
   <main>
-    <h1>MMA Match Maker</h1>
+    <h1 class='container-fluid'>MMA Match Maker</h1>
     <div id="select-fighter"></div>
-    <form id="fighter-form">
+    <form id="fighter-form" class='container-fluid'>
       <select id="first-fighter">
         <option value="" disabled selected>Choose your First Fighter</option>
       </select>
@@ -23,28 +23,30 @@
         <option value="" disabled selected>Choose your Second Fighter</option>
       </select>
         <input id="venue-input" type="text" name="venue" placeholder="Add Venue" />
-    </div>
+        <input id="match-submit" type="submit" value="Submit">
+      </div>
     <ul id="add-venue">
+      
     </ul>
-      <input id="match-submit" type="submit" value="Submit">
+      
     </form>
     <div id="fighter-profile"></div>
     <div id="select-challenger"></div>
     <div id="challenger-profile"></div>
     <div id="comments"></div>
     <div id= "venue">
-     <section class="feedback">
-       <!-- <form> -->
-         <!-- <input type="text" placeholder="Leave comment" id="new-comment"> -->
-         <!-- <input type="submit" value="Post"> -->
-       <!-- </form> -->
-
-       <ul id='feedback-ul'>
-       </ul>
-     </section>
-
 
   </main>
+
+  <div>
+    <section class="feedback">
+      <form id='comment-form'>
+      </form>
+    </section>
+    <ul id='feedback-ul'>
+      <li>test</li>
+    </ul>
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
