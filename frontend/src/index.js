@@ -88,11 +88,11 @@ function fighterFind(selectFighterId, selectChallengerId) {
    })
 }
   
-  function showMatch(fighter1, fighter2) {
-    //fighter section
-    
+function showMatch(fighter1, fighter2) {
+
     const fighterProfile = document.querySelector('#fighter-profile');
     fighterProfile.innerHTML = ''
+    fighterProfile.className = 'container-left'
     const ulFighter = document.createElement('ul');
     const fighterName = document.createElement('p')
     fighterName.textContent = `${fighter1[0].first_name} ${fighter1[0].last_name}`;
@@ -101,14 +101,16 @@ function fighterFind(selectFighterId, selectChallengerId) {
     const fighterWeight = document.createElement('li');
     fighterWeight.innerHTML = `Weight:${fighter1[0].weight}`;
     const fighterImg = document.createElement('img');
+    fighterImg.className = 'img-fluid'
     fighterImg.src = `./assets/${fighter1[0].id}.png`;
-    
+
     ulFighter.append(fighterImg, fighterWeight, fighterHeight)
     fighterProfile.append(fighterName, ulFighter);
-     
+
     //challenger section
     const challengerProfile = document.querySelector('#challenger-profile');
     challengerProfile.innerHTML = ''
+    challengerProfile.className = 'container-right'
     const ulChallenger = document.createElement('ul');
     const challengerName = document.createElement('p')
     challengerName.textContent = `${fighter2[0].first_name} ${fighter2[0].last_name}`;
@@ -119,9 +121,24 @@ function fighterFind(selectFighterId, selectChallengerId) {
     const challengerImg = document.createElement('img');
     challengerImg.src = `./assets/${fighter2[0].id}.png`;
 
-    
+    const feedbackSection = document.querySelector('.feedback')
+    //check for comment input box and add if not there
+    const commentCheck = document.getElementById('comment-input')
+    if ( commentCheck == null) {
+      const commentInput = document.createElement('input')
+      const commentInputBtn = document.createElement('input')
+  
+      commentInput.type = 'text'
+      commentInput.id = 'comment-input'
+      commentInput.placeholder = 'Comments'
+      commentInputBtn.type = 'submit'
+      commentInputBtn.id = 'comment-btn'
+      commentInputBtn.value = 'Post'
+      feedbackSection.append(commentInput, commentInputBtn)
+
+    }
     ulChallenger.append(challengerImg, challengerWeight, challengerHeight)
     challengerProfile.append(challengerName, ulChallenger);
 
     
-  }
+}
