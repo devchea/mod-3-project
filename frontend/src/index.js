@@ -10,7 +10,7 @@ const urlMatches = "http://localhost:3000/matches";
       }
     })
 
-
+//dropdown to show fighters
 function createDropdown(fighter) {
   const selectFighter = document.querySelector('#first-fighter')
   const optionFighter = document.createElement('option')
@@ -115,11 +115,16 @@ function showMatch(fighter1, fighter2) {
     const challengerName = document.createElement('p')
     challengerName.textContent = `${fighter2[0].first_name} ${fighter2[0].last_name}`;
     const challengerHeight = document.createElement('li');
-    challengerHeight.innerHTML = `Height:${fighter2[0].height}`;
+    challengerHeight.innerHTML = `Height: ${fighter2[0].height} inches`;
     const challengerWeight = document.createElement('li');
-    challengerWeight.innerHTML = `Weight:${fighter2[0].weight}`;
+    challengerWeight.innerHTML = `Weight: ${fighter2[0].weight} lbs`;
     const challengerImg = document.createElement('img');
+    challengerImg.className = 'img-fluid'
     challengerImg.src = `./assets/${fighter2[0].id}.png`;
+
+    
+
+    
 
     const feedbackSection = document.querySelector('.feedback')
     //check for comment input box and add if not there
@@ -127,18 +132,36 @@ function showMatch(fighter1, fighter2) {
     if ( commentCheck == null) {
       const commentInput = document.createElement('input')
       const commentInputBtn = document.createElement('input')
-  
+      const ulFeedback = document.querySelector('#feedback-ul')
+      const comments = document.createElement('li')
+      comments.textContent = commentInput.value
+
       commentInput.type = 'text'
       commentInput.id = 'comment-input'
       commentInput.placeholder = 'Comments'
+      commentInput.className = 'container-middle'
+      commentInputBtn.className = 'container-middle'
       commentInputBtn.type = 'submit'
       commentInputBtn.id = 'comment-btn'
       commentInputBtn.value = 'Post'
+
       feedbackSection.append(commentInput, commentInputBtn)
+      ulFeedback.append(comments)
+
+
 
     }
+
+
     ulChallenger.append(challengerImg, challengerWeight, challengerHeight)
     challengerProfile.append(challengerName, ulChallenger);
 
-    
+}
+
+//comment event listener to post comments
+
+function addListenerComments(commentInput) {
+  
+  
+  
 }
