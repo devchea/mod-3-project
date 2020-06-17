@@ -121,7 +121,7 @@ p{
   background-color: yellow;
 }
 
-h1 {
+h1>span {
   border: 3px solid rgb(0, 0, 0);
   background-color: yellow;
   text-align: center;
