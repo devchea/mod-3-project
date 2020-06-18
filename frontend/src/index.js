@@ -103,7 +103,11 @@ function fighterFind(selectFighterId, selectChallengerId) {
 }
 
 function showMatch(fighter1, fighter2) {
+  //clear comments section
+  const ulFeedback = document.querySelector('#feedback-ul')
+  ulFeedback.innerHTML = ''
 
+  //fighter profile section
   const fighterProfile = document.querySelector('#fighter-profile');
   fighterProfile.innerHTML = ''
   fighterProfile.className = 'container-left'
@@ -150,10 +154,15 @@ function showMatch(fighter1, fighter2) {
 
 function addListenerComments() {
   const ulFeedback = document.querySelector('#feedback-ul')
+  
   const comment = document.getElementById('comment-input')
   const comments = document.createElement('li')
+  const delBtn = document.createElement('button')
+  delBtn.textContent = 'Delete Comment'
+  //comments.textContent =''
   comments.textContent = comment.value
-  ulFeedback.append(comments)
+ 
+  ulFeedback.append(comments,delBtn)
   const commentForm = document.getElementById('comment-form')
   commentForm.style.visibility = "hidden"
 
@@ -163,15 +172,28 @@ function addListenerComments() {
 
   //pass information taken from user inputs to create a new match
   createMatch(fighterID, challengerID, comment.value, venueName)
+  //del comment li
+  delBtn.addEventListener('click', ()=> {
+    const feedback = document.querySelector('#feedback-ul li')
+    feedback.remove()
+    delBtn.remove()
+  })
+
 }
 
 
 
 //get the most current match (presumably the one on the screen)
-// function updateMatch(comment) {
+//  function deleteComment(comment) {
+//   const feedback = document.querySelector('#feedback-ul li')
+//   const editBtn = document.createElement('button')
+//   editBtn.textContent = 'Edit'
+//   //editBtn.style.visibility = "hidden"
+//   feedback.append(editBtn)
 
+  
 //   const options = {
-//     method: 'PATCH',
+//     method: 'DELETE',
 //     headers: {
 //       'Content-Type': 'application/json',
 //       'Accept': 'application/json'
@@ -180,10 +202,10 @@ function addListenerComments() {
 //       comment: comment
 //     })
 //   }
-//   fetch(urlMatches , options)
+//   fetch(`${urlMatches}/${id}` , options)
 //     .then(res => res.json())
 //     .then(json => {
 //       console.log(json)
 //     })
-//   
+  
 // }
