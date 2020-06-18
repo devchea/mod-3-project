@@ -1,10 +1,7 @@
 const urlFighters = "http://localhost:3000/fighters";
 const urlChallengers = "http://localhost:3000/challengers";
 const urlMatches = "http://localhost:3000/matches";
-//placeholders
-//var fighterID = -1
-//var challengerID = -1
-//var venueName = ""
+
 
 fetch(urlFighters)
   .then(res => res.json())
@@ -183,10 +180,10 @@ function addListenerComments() {
 //       comment: comment
 //     })
 //   }
-//   fetch(urlMatches + '/' + MatchID, options)
+//   fetch(urlMatches , options)
 //     .then(res => res.json())
 //     .then(json => {
 //       console.log(json)
 //     })
-//     .catch(err => console.log(err))
+//   
 // }
