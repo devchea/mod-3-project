@@ -1,14 +1,18 @@
 const urlFighters = "http://localhost:3000/fighters";
 const urlChallengers = "http://localhost:3000/challengers";
 const urlMatches = "http://localhost:3000/matches";
+//placeholders
+//var fighterID = -1
+//var challengerID = -1
+//var venueName = ""
 
-  fetch(urlFighters)
-    .then(res => res.json())
-    .then(fighters => {
-      for (const fighter of fighters) {
-        createDropdown(fighter)
-      }
-    })
+fetch(urlFighters)
+  .then(res => res.json())
+  .then(fighters => {
+    for (const fighter of fighters) {
+      createDropdown(fighter)
+    }
+  })
 
 //dropdown to show fighters
 function createDropdown(fighter) {
@@ -40,17 +44,21 @@ form.addEventListener('submit', (e) => {
   const selectChallengerId = selectChallenger.options[selectChallenger.selectedIndex].id
   const venueInput = document.querySelector('#venue-input').value
 
+  fighterID = selectChallengerId
+  challengerID = selectChallengerId
+  venueName = venueInput
+
   //reset dropdown menu to default
-  selectFighter.selectedIndex = 0
-  selectChallenger.selectedIndex = 0
+  //selectFighter.selectedIndex = 0
+  //selectChallenger.selectedIndex = 0
 
   //pass information taken from user inputs to find the fighters
   fighterFind(selectFighterId, selectChallengerId)
 
   //pass information taken from user inputs to create a new match
-  createMatch(selectFighterId, selectChallengerId, venueInput)
+  //createMatch(selectFighterId, selectChallengerId, venueInput)
 
-  
+
   if (selectFighterId == 28 && selectChallengerId == 30) {
     alert("Really?")
     alert("You sure about that?")
@@ -62,7 +70,7 @@ form.addEventListener('submit', (e) => {
 })
 
 //POST a match from user inputs
-function createMatch(selectFighterId, selectChallengerId, venueInput) {
+function createMatch(selectFighterId, selectChallengerId, fight_comment, venueInput) {
 
   const options = {
     method: 'POST',
@@ -73,99 +81,112 @@ function createMatch(selectFighterId, selectChallengerId, venueInput) {
     body: JSON.stringify({
       fighter_id: selectFighterId,
       challenger_id: selectChallengerId,
+      comment: fight_comment,
       venue: venueInput
     })
   }
 
   fetch(urlMatches, options)
-  .then(res => res.json())
-  .then(json =>{
-    // console.log(jsosn)
-  })
+    .then(res => res.json())
+    .then(json => {
+      //console.log(json)
+    })
 
 }
 
 function fighterFind(selectFighterId, selectChallengerId) {
 
   fetch(urlFighters)
-   .then(res => res.json())
-   .then(fighters => {
-     const fighter1 = fighters.filter(fighter => fighter.id == selectFighterId)
-     const fighter2 = fighters.filter(fighter => fighter.id == selectChallengerId)
-       showMatch(fighter1, fighter2)
-   })
+    .then(res => res.json())
+    .then(fighters => {
+      const fighter1 = fighters.filter(fighter => fighter.id == selectFighterId)
+      const fighter2 = fighters.filter(fighter => fighter.id == selectChallengerId)
+      showMatch(fighter1, fighter2)
+    })
 }
-  
+
 function showMatch(fighter1, fighter2) {
 
-    const fighterProfile = document.querySelector('#fighter-profile');
-    fighterProfile.innerHTML = ''
-    fighterProfile.className = 'container-left'
-    const ulFighter = document.createElement('ul');
-    const fighterName = document.createElement('h3')
-    fighterName.textContent = `${fighter1[0].first_name} ${fighter1[0].last_name}`;
-    const fighterHeight = document.createElement('li');
-    fighterHeight.innerHTML = `Height:${fighter1[0].height} inches`;
-    const fighterWeight = document.createElement('li');
-    fighterWeight.innerHTML = `Weight:${fighter1[0].weight} lbs`;
-    const fighterImg = document.createElement('img');
-    fighterImg.className = 'img-fluid'
-    fighterImg.src = `./assets/${fighter1[0].id}.png`;
+  const fighterProfile = document.querySelector('#fighter-profile');
+  fighterProfile.innerHTML = ''
+  fighterProfile.className = 'container-left'
+  const ulFighter = document.createElement('ul');
+  const fighterName = document.createElement('h3')
+  fighterName.textContent = `${fighter1[0].first_name} ${fighter1[0].last_name}`;
+  const fighterHeight = document.createElement('li');
+  fighterHeight.innerHTML = `Height:${fighter1[0].height} inches`;
+  const fighterWeight = document.createElement('li');
+  fighterWeight.innerHTML = `Weight:${fighter1[0].weight} lbs`;
+  const fighterImg = document.createElement('img');
+  fighterImg.className = 'img-fluid'
+  fighterImg.src = `./assets/${fighter1[0].id}.png`;
 
-    ulFighter.append(fighterImg, fighterWeight, fighterHeight)
-    fighterProfile.append(fighterName, ulFighter);
+  ulFighter.append(fighterImg, fighterWeight, fighterHeight)
+  fighterProfile.append(fighterName, ulFighter);
 
-    //challenger section
-    const challengerProfile = document.querySelector('#challenger-profile');
-    challengerProfile.innerHTML = ''
-    challengerProfile.className = 'container-right'
-    const ulChallenger = document.createElement('ul');
-    const challengerName = document.createElement('h3')
-    challengerName.textContent = `${fighter2[0].first_name} ${fighter2[0].last_name}`;
-    const challengerHeight = document.createElement('li');
-    challengerHeight.innerHTML = `Height: ${fighter2[0].height} inches`;
-    const challengerWeight = document.createElement('li');
-    challengerWeight.innerHTML = `Weight: ${fighter2[0].weight} lbs`;
-    const challengerImg = document.createElement('img');
-    challengerImg.className = 'img-fluid'
-    challengerImg.src = `./assets/${fighter2[0].id}.png`;
+  //challenger section
+  const challengerProfile = document.querySelector('#challenger-profile');
+  challengerProfile.innerHTML = ''
+  challengerProfile.className = 'container-right'
+  const ulChallenger = document.createElement('ul');
+  const challengerName = document.createElement('h3')
+  challengerName.textContent = `${fighter2[0].first_name} ${fighter2[0].last_name}`;
+  const challengerHeight = document.createElement('li');
+  challengerHeight.innerHTML = `Height: ${fighter2[0].height} inches`;
+  const challengerWeight = document.createElement('li');
+  challengerWeight.innerHTML = `Weight: ${fighter2[0].weight} lbs`;
+  const challengerImg = document.createElement('img');
+  challengerImg.className = 'img-fluid'
+  challengerImg.src = `./assets/${fighter2[0].id}.png`;
 
-    
+  const commentForm = document.getElementById('comment-form')
+  commentForm.style.visibility = "visible"
 
-    
-
-    const feedbackSection = document.querySelector('.feedback')
-    //check for comment input box and add if not there
-    const commentCheck = document.getElementById('comment-input')
-    if ( commentCheck == null) {
-      const commentInput = document.createElement('input')
-      const commentInputBtn = document.createElement('input')
-      const ulFeedback = document.querySelector('#feedback-ul')
-      // const comments = document.createElement('li')
-      // comments.textContent = commentInput.value
-
-      commentInput.type = 'text'
-      commentInput.id = 'comment-input'
-      commentInput.placeholder = 'Comments'
-      commentInput.className = 'container-middle'
-      commentInputBtn.className = 'container-middle'
-      commentInputBtn.type = 'submit'
-      commentInputBtn.id = 'comment-btn'
-      commentInputBtn.value = 'Post'
-
-      feedbackSection.append(commentInput, commentInputBtn)
-      // ulFeedback.append(comments)
-
-    }
-
-
-    ulChallenger.append(challengerImg, challengerWeight, challengerHeight)
-    challengerProfile.append(challengerName, ulChallenger);
+  ulChallenger.append(challengerImg, challengerWeight, challengerHeight)
+  challengerProfile.append(challengerName, ulChallenger);
 
 }
+
+
 
 //comment event listener to post comments
 
-function addListenerComments(commentInput) {
+function addListenerComments() {
+  const ulFeedback = document.querySelector('#feedback-ul')
+  const comment = document.getElementById('comment-input')
+  const comments = document.createElement('li')
+  comments.textContent = comment.value
+  ulFeedback.append(comments)
+  const commentForm = document.getElementById('comment-form')
+  commentForm.style.visibility = "hidden"
 
+  //reset dropdown menu to default
+  selectFighter.selectedIndex = 0
+  selectChallenger.selectedIndex = 0
+
+  //pass information taken from user inputs to create a new match
+  createMatch(fighterID, challengerID, comment.value, venueName)
 }
+
+
+
+//get the most current match (presumably the one on the screen)
+// function updateMatch(comment) {
+
+//   const options = {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       comment: comment
+//     })
+//   }
+//   fetch(urlMatches + '/' + MatchID, options)
+//     .then(res => res.json())
+//     .then(json => {
+//       console.log(json)
+//     })
+//     .catch(err => console.log(err))
+// }

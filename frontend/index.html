@@ -40,8 +40,10 @@
 
   <div>
     <section class="feedback">
-      <form id='comment-form'>
-      </form>
+      <div id='comment-form' style="visibility: hidden;">
+        <input id="comment-input" type="text" class="container-middle"></input>
+        <button id="comment-btn" type="submit" class="container-middle" onclick="addListenerComments()">Post</button>
+      </div>
     </section>
     <ul id='feedback-ul'>
       
