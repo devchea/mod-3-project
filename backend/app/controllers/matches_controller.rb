@@ -24,6 +24,10 @@ class MatchesController < ApplicationController
       match.update(match_params)
     end
 
+    def delete
+      
+    end
+
     private
       def match_params
         params.require(:match).permit(:fighter_id, :challenger_id, :comment, :venue)
